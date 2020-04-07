@@ -1,11 +1,22 @@
 import * as React from "react";
-import Potato from "./Potato";
+
+interface MovieProp {
+  title: string;
+}
+
+function Movie({ title }: MovieProp) {
+  return (
+    <div>
+      <h1>Movies {title}</h1>
+    </div>
+  );
+}
 
 function App() {
   return (
     <div>
       <h1>Hello</h1>
-      <Potato />
+      <Movie title="Batman" />
     </div>
   );
 }
