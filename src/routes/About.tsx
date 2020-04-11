@@ -23,32 +23,26 @@ interface movieDetailType {
 }
 
 class About extends React.Component<
-  RouteComponentProps<{}, {}, movieDetailType>,
-  movieDetailType
+  RouteComponentProps<{}, {}, movieDetailType>
 > {
-  constructor(props: RouteComponentProps<{}, {}, movieDetailType>) {
-    super(props);
-    this.state = props.location.state;
-  }
-
   componentDidMount() {
     const {
       location: { state },
       history,
     } = this.props;
-    console.log(state);
-    if (state === undefined) {
-      console.log("UNDEFINED");
+
+    if (state == null) {
       history.push("/");
     }
   }
 
   render() {
-    if (this.state) {
+    const { location } = this.props;
+    if (location.state) {
       return (
         <div>
-          <span>{this.state.title}</span>
-          <span>{this.state.year}</span>
+          <span>{location.state.title}</span>
+          <span>{location.state.year}</span>
         </div>
       );
     }
