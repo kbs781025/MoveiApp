@@ -1,7 +1,5 @@
 import * as React from "react";
-import { StaticContext } from "react-router";
-import { RouteComponentProps } from "react-router-dom";
-import { MovieType } from "../Components/Movie";
+import { RouteComponentProps, Redirect } from "react-router-dom";
 
 // function About(
 //   props: RouteComponentProps<{ id: string }, StaticContext, MovieType>
@@ -23,19 +21,8 @@ interface movieDetailType {
 }
 
 class About extends React.Component<
-  RouteComponentProps<{}, {}, movieDetailType>
+  RouteComponentProps<{ id: string }, {}, movieDetailType>
 > {
-  componentDidMount() {
-    const {
-      location: { state },
-      history,
-    } = this.props;
-
-    if (state == null) {
-      history.push("/");
-    }
-  }
-
   render() {
     const { location } = this.props;
     if (location.state) {
@@ -46,7 +33,7 @@ class About extends React.Component<
         </div>
       );
     }
-    return null;
+    return <Redirect to="/"></Redirect>;
   }
 }
 
