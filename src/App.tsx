@@ -3,39 +3,6 @@ import Axios from "axios";
 import Movie from "./Movie";
 import { MovieType } from "./Movie";
 
-// interface MovieProp {
-//   key: number;
-//   title: string;
-//   date: string;
-// }
-
-// function Movie({ title, date }: MovieProp) {
-//   return (
-//     <div>
-//       <h1>
-//         Movies {title} {date}
-//       </h1>
-//     </div>
-//   );
-// }
-
-// const movies: { id: number; name: string; date: string }[] = [
-//   { id: 1, name: "Batman", date: "200408" },
-//   { id: 2, name: "Superman", date: "200420" },
-// ];
-
-// function renderMovies(movie: {
-//   id: number;
-//   name: string;
-//   date: string;
-// }): JSX.Element {
-//   return <Movie key={movie.id} title={movie.name} date={movie.date} />;
-// }
-
-// function App() {
-//   return <div>{movies.map(renderMovies)}</div>;
-// }
-
 interface pageState {
   isLoading: boolean;
   movies: MovieType[];
