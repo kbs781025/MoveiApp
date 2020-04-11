@@ -1,6 +1,7 @@
 import * as React from "react";
 import Axios from "axios";
 import Movie from "./Movie";
+import { MovieType } from "./Movie";
 
 // interface MovieProp {
 //   key: number;
@@ -35,16 +36,9 @@ import Movie from "./Movie";
 //   return <div>{movies.map(renderMovies)}</div>;
 // }
 
-interface MovieType {
-  id: number;
-  title: string;
-  year: number;
-  rating: number;
-}
-
 interface pageState {
   isLoading: boolean;
-  movies: Movie[];
+  movies: MovieType[];
 }
 
 class App extends React.Component<{}, pageState> {
@@ -65,6 +59,8 @@ class App extends React.Component<{}, pageState> {
         id: movie.id,
         title: movie.title,
         year: movie.year,
+        genres: movie.genres,
+        coverImage: movie.medium_cover_image,
         rating: movie.rating,
       });
     }
@@ -88,9 +84,12 @@ class App extends React.Component<{}, pageState> {
           : movies.map((movie) => {
               return (
                 <Movie
+                  key={movie.id}
                   id={movie.id}
                   title={movie.title}
                   year={movie.year}
+                  genres={movie.genres}
+                  coverImage={movie.coverImage}
                   rating={movie.rating}
                 />
               );

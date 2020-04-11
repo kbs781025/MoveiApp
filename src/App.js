@@ -28,6 +28,8 @@ class App extends React.Component {
                     id: movie.id,
                     title: movie.title,
                     year: movie.year,
+                    genres: movie.genres,
+                    coverImage: movie.medium_cover_image,
                     rating: movie.rating,
                 });
             }
@@ -45,7 +47,7 @@ class App extends React.Component {
         return (React.createElement("div", null, isLoading
             ? "Loading"
             : movies.map((movie) => {
-                return (React.createElement(Movie, { id: movie.id, title: movie.title, year: movie.year, rating: movie.rating }));
+                return (React.createElement(Movie, { key: movie.id, id: movie.id, title: movie.title, year: movie.year, genres: movie.genres, coverImage: movie.coverImage, rating: movie.rating }));
             })));
     }
 }
