@@ -1,5 +1,4 @@
 import * as React from "react";
-// @ts-ignore
 import { Link } from "react-router-dom";
 
 export interface MovieType {
@@ -14,7 +13,15 @@ export interface MovieType {
 function Movie({ id, title, year, genres, coverImage, rating }: MovieType) {
   return (
     <div>
-      <Link to={`/movie-detail/${id}`}>
+      <Link
+        to={{
+          pathname: `/movie-detail/${id}`,
+          state: {
+            title,
+            year,
+          },
+        }}
+      >
         <h3>Title {title}</h3>
       </Link>
       <h3>Year {year}</h3>
